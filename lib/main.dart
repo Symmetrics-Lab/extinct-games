@@ -20,6 +20,19 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),
+      onGenerateRoute: (settings) {
+        if (settings.name == AnimalCard.routeName) {
+          print(settings.arguments);
+          return MaterialPageRoute(
+            builder: (context) {
+              return AnimalCard(
+                animalIndex: settings.arguments,
+              );
+            },
+          );
+        }
+        return null;
+      },
     );
   }
 }

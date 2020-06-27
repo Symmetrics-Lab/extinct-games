@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../logic/providers/animal_provider.dart';
 
+import './animal_card.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,10 @@ class Home extends StatelessWidget {
                   subtitle: Text(animal.sciName),
                   trailing: FilterChip(
                       label: Text(animal.endangerment), onSelected: null),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(AnimalCard.routeName, arguments: index);
+                  },
                 ),
                 Divider(),
               ],

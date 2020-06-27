@@ -2,10 +2,19 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../logic/providers/animal_provider.dart';
+
 class AnimalCard extends StatelessWidget {
+  static const routeName = '/animal';
+  final int animalIndex;
+
+  const AnimalCard({Key key, this.animalIndex}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var animal = AnimalProvider().getAnimal(animalIndex);
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -18,7 +27,7 @@ class AnimalCard extends StatelessWidget {
                     bottom: 30,
                     right: 10,
                     child: Text(
-                      'White Shark',
+                      animal.name,
                       style: TextStyle(
                         color: Colors.cyan,
                         fontSize: 48,
@@ -29,7 +38,7 @@ class AnimalCard extends StatelessWidget {
                     bottom: 10,
                     right: 10,
                     child: Text(
-                      'Carcharodon carcharias',
+                      animal.sciName,
                       style: TextStyle(
                         color: Colors.cyan,
                         fontSize: 16,
@@ -40,7 +49,7 @@ class AnimalCard extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/white-shark.jpg'),
+                  image: NetworkImage(animal.heroImageName),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -61,7 +70,7 @@ class AnimalCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          'Vulnerable',
+                          animal.endangerment,
                           style: TextStyle(
                             color: Colors.red[200],
                             fontSize: 18,
@@ -73,7 +82,7 @@ class AnimalCard extends StatelessWidget {
                       height: 16,
                     ),
                     Text(
-                      "The great white shark is the world's largest known predatory fish. It has 300 teeth, yet does not chew its food. Sharks rip their prey into mouth-sized pieces which are swallowed whole. The shark’s heavy, torpedo-shaped body allows it to cruise efficiently for long periods of time, and then suddenly switch to high speed bursts in pursuit of prey—sometimes leaping out of the water. It feeds on a broad spectrum of prey, from small fish, such as halibut, to large seals and dolphins.",
+                      animal.description,
                       style: TextStyle(
                         color: Colors.white70,
                       ),
@@ -88,17 +97,7 @@ class AnimalCard extends StatelessWidget {
                     SizedBox(
                       height: 16,
                     ),
-                    Text(
-                        'Gulf of California, Southern Chile, The Galápagos, Coastal East Africa'),
-                    Text(
-                      'Places',
-                      style: Theme.of(context).textTheme.headline5,
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
-                        'Gulf of California, Southern Chile, The Galápagos, Coastal East Africa'),
+                    Text(animal.location),
                   ],
                 ),
               ),
