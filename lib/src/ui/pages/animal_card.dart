@@ -13,60 +13,71 @@ class AnimalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var animal = AnimalProvider().getAnimal(animalIndex);
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 300.0,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                children: [
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      color: Colors.black54,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 8),
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            animal.name,
-                            style: TextStyle(
-                              color: Colors.cyan,
-                              fontSize: 32,
+            Hero(
+              tag: animal.name,
+              child: Container(
+                height: 300.0,
+                width: width,
+                child: LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  if (constraints.maxWidth >= width) {
+                    return Stack(
+                      children: [
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            color: Colors.black54,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 8),
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  animal.name,
+                                  style: TextStyle(
+                                    color: Colors.cyan,
+                                    fontSize: 32,
+                                  ),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.end,
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Text(
+                                  animal.sciName,
+                                  style: TextStyle(
+                                    color: Colors.cyan,
+                                    fontSize: 16,
+                                  ),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.end,
+                                ),
+                              ],
                             ),
-                            maxLines: 2,
-                            textAlign: TextAlign.end,
                           ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            animal.sciName,
-                            style: TextStyle(
-                              color: Colors.cyan,
-                              fontSize: 16,
-                            ),
-                            maxLines: 2,
-                            textAlign: TextAlign.end,
-                          ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return SizedBox();
+                  }
+                }),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.7), BlendMode.dstATop),
+                    image: NetworkImage(animal.heroImageName),
+                    fit: BoxFit.cover,
                   ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.7), BlendMode.dstATop),
-                  image: NetworkImage(animal.heroImageName),
-                  fit: BoxFit.cover,
                 ),
               ),
             ),

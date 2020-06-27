@@ -46,9 +46,12 @@ class Home extends StatelessWidget {
               children: [
                 ListTile(
                   leading: animal.thumbnailImage != ''
-                      ? CircleAvatar(
-                          child: ClipOval(
-                            child: Image.network(animal.thumbnailImage),
+                      ? Hero(
+                          tag: animal.name,
+                          child: CircleAvatar(
+                            child: ClipOval(
+                              child: Image.network(animal.thumbnailImage),
+                            ),
                           ),
                         )
                       : CircleAvatar(),
@@ -64,8 +67,31 @@ class Home extends StatelessWidget {
                     backgroundColor: getStatusColor(animal.endangerment),
                   ),
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(AnimalCard.routeName, arguments: index);
+                    // Navigator.of(context)
+                    //     .pushNamed(AnimalCard.routeName, arguments: index);
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 1000),
+                        pageBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secondaryAnimation) {
+                          return AnimalCard(
+                            animalIndex: index,
+                          );
+                        },
+                        transitionsBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secondaryAnimation,
+                            Widget child) {
+                          return Align(
+                            child: FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            ),
+                          );
+                        },
+                      ),
+                    );
                   },
                 ),
                 Divider(),

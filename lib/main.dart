@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
       home: Home(),
       onGenerateRoute: (settings) {
         if (settings.name == AnimalCard.routeName) {
-          print(settings.arguments);
           return MaterialPageRoute(
             builder: (context) {
               return AnimalCard(
