@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/animals.dart';
+import '../../logic/providers/animal_provider.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -9,8 +9,31 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: Text('Save the planet'),
       ),
-      body: Center(
-        child: Text(allAnimals[0].sciName),
+      body: Container(
+        child: ListView.builder(
+          itemCount: AnimalProvider().animals.length,
+          itemBuilder: (ctx, index) {
+            var animal = AnimalProvider().animals[index];
+            return Column(
+              children: [
+                ListTile(
+                  leading: animal.thumbnailImage != ''
+                      ? CircleAvatar(
+                          child: ClipOval(
+                            child: Image.network(animal.thumbnailImage),
+                          ),
+                        )
+                      : CircleAvatar(),
+                  title: Text(animal.name),
+                  subtitle: Text(animal.sciName),
+                  trailing: FilterChip(
+                      label: Text(animal.endangerment), onSelected: null),
+                ),
+                Divider(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
