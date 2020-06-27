@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../animals.dart';
+
+import '../../models/animals.dart';
 
 class Home extends StatelessWidget {
   @override
