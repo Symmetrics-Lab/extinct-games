@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../animals.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class Home extends StatelessWidget {
         title: Text('Save the planet'),
       ),
       body: Center(
-        child: Text('There is no place like home!'),
+        child: Text(allAnimals[0].sciName),
       ),
     );
   }

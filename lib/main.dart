@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // Pages
 import 'src/ui/pages/home.dart';
+import 'src/animals.dart';
 
 void main() {
   runApp(MyApp());
