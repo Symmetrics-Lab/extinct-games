@@ -24,24 +24,38 @@ class AnimalCard extends StatelessWidget {
               child: Stack(
                 children: [
                   Positioned(
-                    bottom: 30,
-                    right: 10,
-                    child: Text(
-                      animal.name,
-                      style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 48,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 10,
-                    right: 10,
-                    child: Text(
-                      animal.sciName,
-                      style: TextStyle(
-                        color: Colors.cyan,
-                        fontSize: 16,
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                      color: Colors.black54,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 8),
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            animal.name,
+                            style: TextStyle(
+                              color: Colors.cyan,
+                              fontSize: 32,
+                            ),
+                            maxLines: 2,
+                            textAlign: TextAlign.end,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            animal.sciName,
+                            style: TextStyle(
+                              color: Colors.cyan,
+                              fontSize: 16,
+                            ),
+                            maxLines: 2,
+                            textAlign: TextAlign.end,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -49,6 +63,8 @@ class AnimalCard extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 image: DecorationImage(
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.7), BlendMode.dstATop),
                   image: NetworkImage(animal.heroImageName),
                   fit: BoxFit.cover,
                 ),
@@ -57,7 +73,7 @@ class AnimalCard extends StatelessWidget {
             Expanded(
                 child: Container(
               width: double.infinity,
-              color: Colors.black87,
+              color: Colors.black54,
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
                 horizontal: 16,
@@ -82,15 +98,6 @@ class AnimalCard extends StatelessWidget {
                       height: 16,
                     ),
                     Text(
-                      animal.description,
-                      style: TextStyle(
-                        color: Colors.white70,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
                       'Places',
                       style: Theme.of(context).textTheme.headline5,
                     ),
@@ -98,6 +105,23 @@ class AnimalCard extends StatelessWidget {
                       height: 16,
                     ),
                     Text(animal.location),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      'Facts',
+                      style: Theme.of(context).textTheme.headline5,
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      animal.description,
+                      style: TextStyle(
+                        color: Colors.white70,
+                        height: 1.5,
+                      ),
+                    ),
                   ],
                 ),
               ),
