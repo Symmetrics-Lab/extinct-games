@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Pages
 import 'src/ui/pages/home.dart';
 import 'src/ui/pages/animal_card.dart';
+import 'src/ui/pages/map_show.dart';
 
 void main() {
   runApp(MyApp());
