@@ -2,21 +2,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import '../../models/animals.dart';
+import '../../models/region.dart';
 import '../../logic/providers/animal_provider.dart';
 import 'dart:async';
 
 //key to get sizing
 GlobalKey _thiskey = GlobalKey();
 //widget list for stack
-List<Widget> stackList = [
-  Image.asset(
-    'assets/worldmap.jpg',
-    key: _thiskey,
-  ),
-];
+List<Widget> stackList = [];
 //Pre drawing
 List<Animal> listToDraw = AnimalProvider().animals;
-//List<Animal> listToDraw = [];
+// region ID
+Region refRegion = null;
 
 //function to create mapmaker
 Container mapMarker() {
@@ -35,7 +32,7 @@ Container mapMarkerAlt() {
   );
 }
 
-//hotfix, dont accumulate double initializations
+//hotfix, don't accumulate double initializations
 bool drawFlag = true;
 void preDraw(_) {
   final RenderBox renderBoxRed = _thiskey.currentContext.findRenderObject();
@@ -47,20 +44,23 @@ void preDraw(_) {
   if (sizeWidget.height > 0 && sizeWidget.width > 0 && drawFlag) {
     listToDraw.forEach(
       (element) {
-        var ttop = positionWidget.dy + sizeWidget.height * element.y;
-        var lleft = positionWidget.dx + sizeWidget.width * element.x;
-        var xx = sizeWidget.height; // * element.x;
-        var yy = sizeWidget.width; // * element.y;
-        print('$ttop - $lleft');
-        print('$xx > $yy');
-        print(sizeWidget);
-        stackList.add(
-          Positioned(
-            top: ttop,
-            left: lleft,
-            child: mapMarkerAlt(),
-          ),
-        );
+        if (element.regionID == refRegion.id) {
+          var ttop = positionWidget.dy + sizeWidget.height * element.y;
+          var lleft = positionWidget.dx + sizeWidget.width * element.x;
+          var xx = sizeWidget.height; // * element.x;
+          var yy = sizeWidget.width; // * element.y;
+          print('$ttop - $lleft');
+          print('$xx > $yy');
+          print(sizeWidget);
+          stackList.add(
+            Positioned(
+              top: ttop,
+              left: lleft,
+              child: mapMarkerAlt(),
+            ),
+          );
+        }
+        ;
       },
     );
     drawFlag = false;
@@ -69,6 +69,9 @@ void preDraw(_) {
 }
 
 class MapShow extends StatefulWidget {
+  final Region thisRegion;
+
+  MapShow({Key key, this.thisRegion}) : super(key: key);
   @override
   _MapShowState createState() => _MapShowState();
   //void onLoad(BuildContext context) {
@@ -93,6 +96,15 @@ class _MapShowState extends State<MapShow> {
   //on build callback
   @override
   Widget build(BuildContext context) {
+    if (stackList.isEmpty) {
+      stackList.add(
+        Image.asset(
+          widget.thisRegion.image,
+          key: _thiskey,
+        ),
+      );
+    }
+    refRegion = widget.thisRegion; //this is wrong
     return GestureDetector(
       child: Stack(alignment: Alignment.center, children: stackList),
       onTapDown: (TapDownDetails details) {

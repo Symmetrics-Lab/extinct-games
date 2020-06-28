@@ -9,6 +9,7 @@ class Animal {
   String location;
   double x;
   double y;
+  int regionID;
 
   Animal(
       this.name,
@@ -20,5 +21,6 @@ class Animal {
       this.endangerment,
       this.location,
       this.x,
-      this.y);
+      this.y,
+      this.regionID);
 }

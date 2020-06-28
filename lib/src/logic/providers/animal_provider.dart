@@ -12,7 +12,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Namibia Coastal East Africa Deserts Grasslands',
         0.1,
-        0.1),
+        0.1,
+        0),
     Animal(
         'Cross River Gorilla',
         'Gorilla gorilla diehli',
@@ -23,7 +24,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Congo Basin Forest Habitat',
         0.1,
-        0.2),
+        0.2,
+        1),
     Animal(
         'Hawksbill Turtle',
         'Eretmochelys imbricata',
@@ -34,7 +36,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Mesoamerican Reef Coastal East Africa Coral Triangle',
         0.1,
-        0.3),
+        0.3,
+        2),
     Animal(
         'Orangutan',
         'Pongo abelii',
@@ -45,7 +48,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Forest Habitat',
         0.1,
-        0.4),
+        0.4,
+        3),
     Animal(
         'Sumatran Elephant',
         'Elephas maximus sumatranus',
@@ -56,7 +60,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Borneo and Sumatra Forest Habitat',
         0.1,
-        0.5),
+        0.5,
+        4),
     Animal(
         'Sumatran Rhino',
         'Dicerorhinus sumatrensis',
@@ -67,7 +72,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Borneo and Sumatra Forest Habitat',
         0.1,
-        0.6),
+        0.6,
+        0),
     Animal(
         'Vaquita',
         'Phocoena sinus',
@@ -78,7 +84,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Gulf of California Ocean Habitat',
         0.1,
-        0.7),
+        0.7,
+        1),
     Animal(
         'Yangtze Finless Porpoise',
         'Neophocaena asiaeorientalis ssp. asiaeorientalis',
@@ -89,7 +96,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Yangtze Freshwater habitat',
         0.1,
-        0.8),
+        0.8,
+        2),
     Animal(
         'Asian Elephant',
         'Elephas maximus indicus',
@@ -100,7 +108,8 @@ class AnimalProvider {
         'Endangered',
         'Eastern Himalayas Greater Mekong Forest Habitat',
         0.1,
-        0.9),
+        0.9,
+        3),
     Animal(
         'Blue Whale',
         'Balaenoptera musculus',
@@ -111,7 +120,8 @@ class AnimalProvider {
         'Endangered',
         'Southern Chile Gulf of California Coral Triangle Ocean Habitat',
         0.2,
-        0.1),
+        0.1,
+        4),
     Animal(
         'Bonobo',
         'Pan paniscus',
@@ -122,7 +132,8 @@ class AnimalProvider {
         'Endangered',
         'Congo Basin Forest Habitat',
         0.2,
-        0.2),
+        0.2,
+        0),
     Animal(
         'Chimpanzee',
         'Pan troglodytes',
@@ -133,7 +144,8 @@ class AnimalProvider {
         'Endangered',
         'Congo Basin Forest Habitat',
         0.2,
-        0.3),
+        0.3,
+        1),
     Animal(
         'Galápagos Penguin',
         'Spheniscus mendiculus',
@@ -144,7 +156,8 @@ class AnimalProvider {
         'Endangered',
         'The Galápagos',
         0.2,
-        0.4),
+        0.4,
+        2),
     Animal(
         'Green Turtle',
         'Chelonia mydas',
@@ -155,7 +168,8 @@ class AnimalProvider {
         'Endangered',
         'Mesoamerican Reef Coastal East Africa Gulf of California The Galápagos Coral Triangle Ocean Habitat',
         0.2,
-        0.5),
+        0.5,
+        3),
     Animal(
         'Humphead Wrasse',
         'Cheilinus undulatus',
@@ -166,7 +180,8 @@ class AnimalProvider {
         'Endangered',
         'Coral Triangle Coastal East Africa Ocean Habitat',
         0.2,
-        0.6),
+        0.6,
+        4),
     Animal(
         'Indus River Dolphin',
         'Platanista minor',
@@ -177,7 +192,8 @@ class AnimalProvider {
         'Endangered',
         'Freshwater habitat',
         0.2,
-        0.7),
+        0.7,
+        0),
     Animal(
         'Mountain Gorilla',
         'Gorilla beringei beringei',
@@ -188,7 +204,8 @@ class AnimalProvider {
         'Endangered',
         'Congo Basin Forest Habitat Mountains',
         0.2,
-        0.8),
+        0.8,
+        1),
     Animal(
         'Red Panda',
         'Ailurus fulgens',
@@ -199,7 +216,8 @@ class AnimalProvider {
         'Endangered',
         'Eastern Himalayas Forest Habitat',
         0.2,
-        0.9),
+        0.9,
+        2),
     Animal(
         'Sea Turtle',
         'Cheloniidae and Dermochelyidae families',
@@ -210,7 +228,8 @@ class AnimalProvider {
         'Endangered',
         'Mesoamerican Reef Coastal East Africa Coral Triangle The Galápagos Gulf of California',
         0.3,
-        0.1),
+        0.1,
+        3),
     Animal(
         'Sri Lankan Elephant',
         'Elephas maximus maximus',
@@ -221,7 +240,8 @@ class AnimalProvider {
         'Endangered',
         'Forest Habitat',
         0.3,
-        0.2),
+        0.2,
+        4),
     Animal(
         'Whale',
         'Balaenoptera, Balaena, Eschrichtius, and Eubalaen',
@@ -232,7 +252,8 @@ class AnimalProvider {
         'Endangered',
         'Southern Chile Arctic The Galápagos Coral Triangle Gulf of California Coastal East Africa Polar Regions',
         0.3,
-        0.3),
+        0.3,
+        0),
     Animal(
         'African Elephant',
         'Loxodonta africana',
@@ -243,7 +264,8 @@ class AnimalProvider {
         'Vulnerable',
         'Congo Basin Coastal East Africa Forest Habitat Grasslands',
         0.3,
-        0.4),
+        0.4,
+        1),
     Animal(
         'Black Spider Monkey',
         'Ateles paniscus',
@@ -254,7 +276,8 @@ class AnimalProvider {
         'Vulnerable',
         'Amazon Forest Habitat',
         0.3,
-        0.5),
+        0.5,
+        2),
     Animal(
         'Forest Elephant',
         '',
@@ -265,7 +288,8 @@ class AnimalProvider {
         'Vulnerable',
         'Congo Basin Namibia Forest Habitat',
         0.3,
-        0.6),
+        0.6,
+        3),
     Animal(
         'Giant Tortoise',
         '',
@@ -276,7 +300,8 @@ class AnimalProvider {
         'Vulnerable',
         'The Galápagos Ocean Habitat',
         0.3,
-        0.7),
+        0.7,
+        4),
     Animal(
         'Amur Leopard',
         'Panthera pardus orientalis',
@@ -287,7 +312,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Amur-Heilong Forest Habitat Mountains',
         0.3,
-        0.8),
+        0.8,
+        0),
     Animal(
         'Bornean Orangutan',
         'Pongo pygmaeus',
@@ -298,7 +324,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Borneo and Sumatra Forest Habitat',
         0.3,
-        0.9),
+        0.9,
+        1),
     Animal(
         'Eastern Lowland Gorilla',
         'Gorilla beringei graueri',
@@ -309,7 +336,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Congo Basin Forest Habitat',
         0.4,
-        0.1),
+        0.1,
+        2),
     Animal(
         'Javan Rhino',
         'Rhinoceros sondaicus',
@@ -320,7 +348,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Forest Habitat',
         0.4,
-        0.2),
+        0.2,
+        3),
     Animal(
         'Saola',
         'Pseudoryx nghetinhensis',
@@ -331,7 +360,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Greater Mekong Forest Habitat',
         0.4,
-        0.3),
+        0.3,
+        4),
     Animal(
         'Sumatran Orangutan',
         'Pongo abelii',
@@ -342,7 +372,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Borneo and Sumatra',
         0.4,
-        0.4),
+        0.4,
+        0),
     Animal(
         'Sunda Tiger',
         'Panthera tigris sondaica',
@@ -353,7 +384,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Forest Habitat Grasslands Wetlands',
         0.4,
-        0.5),
+        0.5,
+        1),
     Animal(
         'Western Lowland Gorilla',
         'Gorilla gorilla gorilla',
@@ -364,7 +396,8 @@ class AnimalProvider {
         'Critically Endangered',
         'Congo Basin Forest Habitat',
         0.4,
-        0.6),
+        0.6,
+        2),
     Animal(
         'African Wild Dog',
         'Lycaon pictus',
@@ -375,7 +408,8 @@ class AnimalProvider {
         'Endangered',
         'Coastal East Africa Forest Habitat Grasslands Deserts',
         0.4,
-        0.7),
+        0.7,
+        3),
     Animal(
         'Black-footed Ferret',
         'Mustela nigripes',
@@ -386,7 +420,8 @@ class AnimalProvider {
         'Endangered',
         'Northern Great Plains Grasslands',
         0.4,
-        0.8),
+        0.8,
+        4),
     Animal(
         'Bluefin Tuna',
         'Thunnus Thynnus',
@@ -397,7 +432,8 @@ class AnimalProvider {
         'Endangered',
         'Coral Triangle Ocean Habitat',
         0.4,
-        0.9),
+        0.9,
+        0),
     Animal(
         'Borneo Pygmy Elephant',
         'Elephas maximus borneensis',
@@ -408,7 +444,8 @@ class AnimalProvider {
         'Endangered',
         'Borneo and Sumatra',
         0.5,
-        0.1),
+        0.1,
+        1),
     Animal(
         'Fin Whale',
         'Balaenoptera physalus',
@@ -419,7 +456,8 @@ class AnimalProvider {
         'Endangered',
         'Gulf of California Coral Triangle Arctic Ocean Habitat',
         0.5,
-        0.2),
+        0.2,
+        2),
     Animal(
         'Ganges River Dolphin',
         'Platanista gangetica gangetica',
@@ -430,7 +468,8 @@ class AnimalProvider {
         'Endangered',
         'Eastern Himalayas Freshwater habitat',
         0.5,
-        0.3),
+        0.3,
+        3),
     Animal(
         'Hector\'s Dolphin',
         'Cephalorhynchus hectori',
@@ -441,7 +480,8 @@ class AnimalProvider {
         'Endangered',
         'Ocean Habitat',
         0.5,
-        0.4),
+        0.4,
+        4),
     Animal(
         'Indian Elephant',
         'Elephas maximus indicus',
@@ -452,7 +492,8 @@ class AnimalProvider {
         'Endangered',
         'Grasslands',
         0.5,
-        0.5),
+        0.5,
+        0),
     Animal(
         'Irrawaddy Dolphin',
         'Orcaella brevirostris',
@@ -463,7 +504,8 @@ class AnimalProvider {
         'Endangered',
         'Greater Mekong Freshwater habitat',
         0.5,
-        0.6),
+        0.6,
+        1),
     Animal(
         'North Atlantic Right Whale',
         'Eubalaena glacialis',
@@ -474,7 +516,8 @@ class AnimalProvider {
         'Endangered',
         'Ocean Habitat',
         0.5,
-        0.7),
+        0.7,
+        2),
     Animal(
         'Sea Lions',
         'Zalophus wollebaeki',
@@ -485,7 +528,8 @@ class AnimalProvider {
         'Endangered',
         'The Galápagos Ocean Habitat',
         0.5,
-        0.8),
+        0.8,
+        3),
     Animal(
         'Sei Whale',
         'Balaenoptera borealis',
@@ -496,7 +540,8 @@ class AnimalProvider {
         'Endangered',
         'Southern Chile Arctic The Galápagos Coral Triangle Gulf of California Coastal East Africa Ocean Habitat',
         0.5,
-        0.9),
+        0.9,
+        4),
     Animal(
         'Tiger',
         'Panthera tigris',
@@ -507,7 +552,8 @@ class AnimalProvider {
         'Endangered',
         'Forest Habitat',
         0.6,
-        0.1),
+        0.1,
+        0),
     Animal(
         'Whale Shark',
         'Rhincodon typus',
@@ -518,7 +564,8 @@ class AnimalProvider {
         'Endangered',
         'Mesoamerican Reef Coastal East Africa Gulf of California Coral Triangle',
         0.6,
-        0.2),
+        0.2,
+        1),
     Animal(
         'Great White Shark',
         'Carcharodon carcharias',
@@ -529,7 +576,8 @@ class AnimalProvider {
         'Vulnerable',
         'Gulf of California, Southern Chile, The Galápagos, Coastal East Africa',
         0.6,
-        0.3),
+        0.3,
+        2),
   ];
 
   List<Animal> get animals {
