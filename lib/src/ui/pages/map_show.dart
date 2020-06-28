@@ -27,20 +27,44 @@ class _MapShowState extends State<MapShow> {
 // region ID
   Region refRegion;
 
-//function to create mapmaker
-  Container mapMarker() {
+  Container mapMarkerAlt(Animal animal, int index) {
     return Container(
-      width: 10,
-      height: 10,
-      color: Colors.red,
-    );
-  }
-
-  Container mapMarkerAlt() {
-    return Container(
-      width: 10,
-      height: 10,
-      color: Colors.blue,
+      width: 48,
+      height: 48,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(
+            PageRouteBuilder(
+              transitionDuration: Duration(milliseconds: 1000),
+              pageBuilder: (BuildContext context, Animation<double> animation,
+                  Animation<double> secondaryAnimation) {
+                return AnimalCard(
+                  animalIndex: index,
+                );
+              },
+              transitionsBuilder: (BuildContext context,
+                  Animation<double> animation,
+                  Animation<double> secondaryAnimation,
+                  Widget child) {
+                return Align(
+                  child: FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  ),
+                );
+              },
+            ),
+          );
+        },
+        child: Hero(
+          tag: animal.name,
+          child: CircleAvatar(
+            child: ClipOval(
+              child: Image.network(animal.thumbnailImage),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -51,21 +75,22 @@ class _MapShowState extends State<MapShow> {
     final RenderBox renderBoxRed = _thiskey.currentContext.findRenderObject();
     final sizeWidget = renderBoxRed.size;
     //print('SIZE of widget: $sizeWidget');
-    final positionWidget = renderBoxRed.localToGlobal(Offset.zero);
+    // final positionWidget = renderBoxRed.localToGlobal(Offset.zero);
     //print('POSITION of widget: $positionWidget ');
     //position+size*animal
     print(sizeWidget);
 
     if (sizeWidget.height > 0 && sizeWidget.width > 0) {
       print('Step 2');
+
       listToDraw.forEach(
-        (element) {
-          if (element.regionID == refRegion.id) {
+        (animal) {
+          if (animal.regionID == refRegion.id) {
             print('Step 3');
-            var ttop = sizeWidget.height * element.y;
-            var lleft = sizeWidget.width * element.x;
-            // var xx = sizeWidget.height; // * element.x;
-            // var yy = sizeWidget.width; // * element.y;
+            var ttop = sizeWidget.height * animal.y;
+            var lleft = sizeWidget.width * animal.x;
+            // var xx = sizeWidget.height; // * animal.x;
+            // var yy = sizeWidget.width; // * animal.y;
             //print('$ttop - $lleft');
             //print('$xx > $yy');
             //print(sizeWidget);
@@ -73,7 +98,7 @@ class _MapShowState extends State<MapShow> {
               Positioned(
                 top: ttop,
                 left: lleft,
-                child: mapMarkerAlt(),
+                child: mapMarkerAlt(animal, listToDraw.indexOf(animal)),
               ),
             );
             setState(() {
