@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/region.dart';
+import '../pages/map_show.dart';
 
 List<Region> regions = [
   Region(id: 0, image: 'assets/africa.png', name: 'AFRICA'),
@@ -53,12 +54,14 @@ class Explore extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.black54,
           borderRadius: BorderRadius.all(Radius.circular(4.0)),
-          image: DecorationImage(
-            image: AssetImage(region.image),
-            fit: BoxFit.fitWidth,
-          ),
+          // image: DecorationImage(
+          //   image: AssetImage(region.image),
+          //   fit: BoxFit.fitWidth,
+          // ),
         ),
-        child: Text(region.name),
+        child: MapShow(
+          thisRegion: region,
+        ),
       ),
     );
   }

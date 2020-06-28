@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './explore.dart';
 import './animal_list.dart';
+import './trivia.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -28,7 +29,9 @@ class Home extends StatelessWidget {
             child: Text('Endangered species'),
           ),
           RaisedButton(
-            onPressed: null,
+            onPressed: () {
+              Navigator.of(context).pushNamed(Trivia.routeName);
+            },
             child: Text('Trivia'),
           ),
         ],
