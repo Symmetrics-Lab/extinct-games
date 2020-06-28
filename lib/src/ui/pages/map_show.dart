@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../models/animals.dart';
 import '../../models/region.dart';
 import '../../logic/providers/animal_provider.dart';
+import './animal_card.dart';
 import 'dart:async';
 
 //key to get sizing
@@ -126,7 +127,8 @@ class _MapShowState extends State<MapShow> {
         referenceList.forEach((element) {
           double distance =
               sqrt(pow(localx - element.x, 2) + pow(localy - element.y, 2));
-          if (distance < closestDistance) {
+          if (distance < closestDistance &&
+              element.regionID == widget.thisRegion.id) {
             closestDistance = distance;
             closestPick = element;
           }
@@ -135,6 +137,26 @@ class _MapShowState extends State<MapShow> {
         print('$closestDistance - $pickName');
         if (closestDistance < threshold) {
           //logic to show an animal card
+          //incompatible model HOTFIX, search for the correct index
+          List fullList = AnimalProvider().animals;
+          int indexToShow = 0;
+          fullList.forEach((element) {
+            if (element.name == closestPick.name) {
+              print('gonna show $closestPick.name');
+              indexToShow = fullList.indexOf(element);
+            }
+          });
+          Navigator.of(context).push(
+            PageRouteBuilder(
+              transitionDuration: Duration(milliseconds: 1000),
+              pageBuilder: (BuildContext context, Animation<double> animation,
+                  Animation<double> secondaryAnimation) {
+                return AnimalCard(
+                  animalIndex: indexToShow,
+                );
+              },
+            ),
+          );
         }
         //Drawing position: absolute
         setState(() {
