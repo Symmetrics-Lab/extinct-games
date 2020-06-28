@@ -105,21 +105,21 @@ class _MapShowState extends State<MapShow> {
         final sizeWidget = renderBoxRed.size;
         final positionWidget = renderBoxRed.localToGlobal(Offset.zero);
         List referenceList = AnimalProvider().animals;
-        Animal closestPick = null;
-        double closestDistance = 99999;
-        double threshold = 0.035;
-        double localx = (x - positionWidget.dx) / sizeWidget.width;
-        double localy = (y - positionWidget.dy) / sizeWidget.height;
+        Animal closestPick;
+        var closestDistance = 99999.0;
+        var threshold = 0.035;
+        var localx = (x - positionWidget.dx) / sizeWidget.width;
+        var localy = (y - positionWidget.dy) / sizeWidget.height;
         print('$localx - $localy');
         referenceList.forEach((element) {
-          double distance =
+          var distance =
               sqrt(pow(localx - element.x, 2) + pow(localy - element.y, 2));
           if (distance < closestDistance) {
             closestDistance = distance;
             closestPick = element;
           }
         });
-        String pickName = closestPick.name;
+        var pickName = closestPick.name;
         print('$closestDistance - $pickName');
         if (closestDistance < threshold) {
           //logic to show an animal card
