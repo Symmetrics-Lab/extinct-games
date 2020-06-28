@@ -62,8 +62,8 @@ class _MapShowState extends State<MapShow> {
         (element) {
           if (element.regionID == refRegion.id) {
             print('Step 3');
-            var ttop = positionWidget.dy + sizeWidget.height * element.y;
-            var lleft = positionWidget.dx + sizeWidget.width * element.x;
+            var ttop = sizeWidget.height * element.y;
+            var lleft = sizeWidget.width * element.x;
             // var xx = sizeWidget.height; // * element.x;
             // var yy = sizeWidget.width; // * element.y;
             //print('$ttop - $lleft');
@@ -120,7 +120,7 @@ class _MapShowState extends State<MapShow> {
           onPressed: () {
             preDraw(0);
           },
-          child: Text('Draw'),
+          child: Text('Explore!'),
         ),
         GestureDetector(
           child: Stack(alignment: Alignment.center, children: stackList),
