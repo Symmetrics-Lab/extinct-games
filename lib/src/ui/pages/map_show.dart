@@ -38,9 +38,9 @@ bool drawFlag = true;
 void preDraw(_) {
   final RenderBox renderBoxRed = _thiskey.currentContext.findRenderObject();
   final sizeWidget = renderBoxRed.size;
-  print('SIZE of widget: $sizeWidget');
+  //print('SIZE of widget: $sizeWidget');
   final positionWidget = renderBoxRed.localToGlobal(Offset.zero);
-  print('POSITION of widget: $positionWidget ');
+  //print('POSITION of widget: $positionWidget ');
   //position+size*animal
   if (sizeWidget.height > 0 && sizeWidget.width > 0 && drawFlag) {
     listToDraw.forEach(
@@ -50,9 +50,9 @@ void preDraw(_) {
           var lleft = positionWidget.dx + sizeWidget.width * element.x;
           var xx = sizeWidget.height; // * element.x;
           var yy = sizeWidget.width; // * element.y;
-          print('$ttop - $lleft');
-          print('$xx > $yy');
-          print(sizeWidget);
+          //print('$ttop - $lleft');
+          //print('$xx > $yy');
+          //print(sizeWidget);
           stackList.add(
             Positioned(
               top: ttop,
@@ -109,7 +109,7 @@ class _MapShowState extends State<MapShow> {
     return GestureDetector(
       child: Stack(alignment: Alignment.center, children: stackList),
       onTapDown: (TapDownDetails details) {
-        print('onTapDown');
+        //print('onTapDown');
         var x = details.globalPosition.dx;
         var y = details.globalPosition.dy;
         print('$x - $y');
@@ -123,7 +123,7 @@ class _MapShowState extends State<MapShow> {
         double threshold = 0.035;
         double localx = (x - positionWidget.dx) / sizeWidget.width;
         double localy = (y - positionWidget.dy) / sizeWidget.height;
-        print('$localx - $localy');
+        //print('$localx - $localy');
         referenceList.forEach((element) {
           double distance =
               sqrt(pow(localx - element.x, 2) + pow(localy - element.y, 2));
@@ -134,7 +134,7 @@ class _MapShowState extends State<MapShow> {
           }
         });
         String pickName = closestPick.name;
-        print('$closestDistance - $pickName');
+        //print('$closestDistance - $pickName');
         if (closestDistance < threshold) {
           //logic to show an animal card
           //incompatible model HOTFIX, search for the correct index
@@ -142,7 +142,7 @@ class _MapShowState extends State<MapShow> {
           int indexToShow = 0;
           fullList.forEach((element) {
             if (element.name == closestPick.name) {
-              print('gonna show $closestPick.name');
+              //print('gonna show $closestPick.name');
               indexToShow = fullList.indexOf(element);
             }
           });
@@ -160,7 +160,7 @@ class _MapShowState extends State<MapShow> {
         }
         //Drawing position: absolute
         setState(() {
-          stackList.add(Positioned(top: y, left: x, child: mapMarker()));
+          //stackList.add(Positioned(top: y, left: x, child: mapMarker()));
         });
       },
     );
