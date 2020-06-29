@@ -26,8 +26,8 @@ class _MapShowState extends State<MapShow> {
 
   Container mapMarkerAlt(Animal animal, int index) {
     return Container(
-      width: 48,
-      height: 48,
+      width: 24,
+      height: 24,
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(
