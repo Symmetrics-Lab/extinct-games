@@ -19,5 +19,12 @@ We added a few of the most endangered species on earth, and we intend to add mor
 Done by SymmetricLabs during the Hack20 - Online International Flutter Hackathon 2020 - symlab.io
 
 Information taken from the WWF webpage - wwf.com
-Maps taken from vemaps.com
+Maps taken from [vemaps.com](https://freevectormaps.com/).
 
+We don't have any affiliations to WWF.
+
+## Technical info
+
+- We build this with the Flutter beta channel.
+- All the information is local.
+- The images are hosted on a S3 bucket.
