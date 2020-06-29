@@ -17,7 +17,7 @@ class QuestionProvider extends ChangeNotifier {
       answer: 2,
     ),
     Question(
-      id: 2,
+      id: 1,
       text:
           'Since the U.S. Endangered Species Act was enacted in 1973, how many animals from the list have gone extinct?',
       options: [
@@ -29,7 +29,7 @@ class QuestionProvider extends ChangeNotifier {
       answer: 1,
     ),
     Question(
-      id: 1,
+      id: 2,
       text: 'What was the last feline species to go extinct?',
       options: [
         'Iberian lynx',
@@ -42,7 +42,7 @@ class QuestionProvider extends ChangeNotifier {
           'No feline species has gone extinct since the saber-toothed cat (Smilodon) perished 11000 years ago. The Iberian lynx could be next - there are only some 255 of them in the wild, far too few for long-term survival.',
     ),
     Question(
-      id: 2,
+      id: 3,
       text:
           'Western lowland gorillas have been threatened by whic of the following?',
       options: [

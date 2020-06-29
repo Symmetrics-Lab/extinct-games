@@ -43,6 +43,7 @@ class _TriviaState extends State<Trivia> {
       appBar: AppBar(),
       body: Container(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
             height: 20,
@@ -51,6 +52,7 @@ class _TriviaState extends State<Trivia> {
           QuestionItem(
             question: trivia[_currentQuestion],
             onSelect: selectAnswer,
+            selected: _currentAnswer,
           ),
           trivia.length == _currentQuestion + 1
               ? RaisedButton(
@@ -68,7 +70,11 @@ class _TriviaState extends State<Trivia> {
                       _currentAnswer = -1;
                     });
                   },
-                  child: Text('Next'))
+                  child: Text('Next'),
+                ),
+          SizedBox(
+            height: 10,
+          )
         ],
       )),
     );
