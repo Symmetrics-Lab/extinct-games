@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Endangered Species'),
+        title: Text('Extinct Games'),
       ),
       body: Center(
           child: Column(
@@ -26,30 +26,35 @@ class Home extends StatelessWidget {
               },
               child: Text(
                 'Explore',
-                style: TextStyle(color: Colors.black87),
+                style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
           ),
           Container(
             width: 200,
             child: RaisedButton(
-              color: Colors.purpleAccent,
+              color: Colors.cyanAccent,
               onPressed: () {
                 Navigator.of(context).pushNamed(AnimalList.routeName);
               },
               child: Text(
                 'Endangered species',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black, fontSize: 18),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
           Container(
             width: 200,
             child: RaisedButton(
+              color: Colors.cyanAccent,
               onPressed: () {
                 Navigator.of(context).pushNamed(Trivia.routeName);
               },
-              child: Text('Trivia'),
+              child: Text(
+                'Trivia',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
             ),
           ),
           Container(
@@ -59,7 +64,7 @@ class Home extends StatelessWidget {
               onPressed: _launchURL,
               child: Text(
                 'Donate to WWF',
-                style: TextStyle(color: Colors.black87),
+                style: TextStyle(color: Colors.black87, fontSize: 18),
               ),
             ),
           ),

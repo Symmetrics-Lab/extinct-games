@@ -56,7 +56,9 @@ class _TriviaState extends State<Trivia> {
     var score =
         Provider.of<QuestionProvider>(context, listen: false).currentScore;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Trivia'),
+      ),
       body: Container(
           child: _finished
               ? FinishTrivia(

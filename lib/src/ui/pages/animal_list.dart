@@ -36,7 +36,7 @@ class AnimalList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Save the planet'),
+        title: Text('Endangered Species'),
       ),
       body: Container(
         child: ListView.builder(

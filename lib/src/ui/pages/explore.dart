@@ -18,7 +18,9 @@ class Explore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Explore'),
+      ),
       body: _buildCarousel(context),
     );
   }
