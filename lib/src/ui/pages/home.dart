@@ -10,34 +10,58 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Save the planet'),
+        title: Text('Endangered Species'),
       ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(Explore.routeName);
-            },
-            child: Text('Explore'),
+          Container(
+            width: 200,
+            child: RaisedButton(
+              color: Colors.cyanAccent,
+              onPressed: () {
+                Navigator.of(context).pushNamed(Explore.routeName);
+              },
+              child: Text(
+                'Explore',
+                style: TextStyle(color: Colors.black87),
+              ),
+            ),
           ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(AnimalList.routeName);
-            },
-            child: Text('Endangered species'),
+          Container(
+            width: 200,
+            child: RaisedButton(
+              color: Colors.purpleAccent,
+              onPressed: () {
+                Navigator.of(context).pushNamed(AnimalList.routeName);
+              },
+              child: Text(
+                'Endangered species',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
           ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(Trivia.routeName);
-            },
-            child: Text('Trivia'),
+          Container(
+            width: 200,
+            child: RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(Trivia.routeName);
+              },
+              child: Text('Trivia'),
+            ),
           ),
-          RaisedButton(
-            onPressed: _launchURL,
-            child: Text('Donate to WWF'),
+          Container(
+            width: 200,
+            child: RaisedButton(
+              color: Colors.redAccent,
+              onPressed: _launchURL,
+              child: Text(
+                'Donate to WWF',
+                style: TextStyle(color: Colors.black87),
+              ),
+            ),
           ),
         ],
       )),
@@ -45,7 +69,7 @@ class Home extends StatelessWidget {
   }
 }
 
-_launchURL() async {
+void _launchURL() async {
   const url =
       'https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly';
   if (await canLaunch(url)) {

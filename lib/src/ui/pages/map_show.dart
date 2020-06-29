@@ -12,9 +12,6 @@ class MapShow extends StatefulWidget {
   MapShow({Key key, this.thisRegion}) : super(key: key);
   @override
   _MapShowState createState() => _MapShowState();
-  //void onLoad(BuildContext context) {
-  //preDraw(1);
-//  } //callback when layout build done
 }
 
 class _MapShowState extends State<MapShow> {
@@ -68,32 +65,18 @@ class _MapShowState extends State<MapShow> {
     );
   }
 
-//hotfix, don't accumulate double initializations
-  // bool drawFlag = true;
-  void preDraw(_) {
-    print('Step 1');
+  void preDraw() {
     final RenderBox renderBoxRed = _thiskey.currentContext.findRenderObject();
     final sizeWidget = renderBoxRed.size;
-    //print('SIZE of widget: $sizeWidget');
-    // final positionWidget = renderBoxRed.localToGlobal(Offset.zero);
-    //print('POSITION of widget: $positionWidget ');
-    //position+size*animal
-    print(sizeWidget);
 
     if (sizeWidget.height > 0 && sizeWidget.width > 0) {
-      print('Step 2');
-
       listToDraw.forEach(
         (animal) {
-          if (animal.regionID == refRegion.id) {
+          if (animal.regionID == widget.thisRegion.id) {
             print('Step 3');
             var ttop = sizeWidget.height * animal.y;
             var lleft = sizeWidget.width * animal.x;
-            // var xx = sizeWidget.height; // * animal.x;
-            // var yy = sizeWidget.width; // * animal.y;
-            //print('$ttop - $lleft');
-            //print('$xx > $yy');
-            //print(sizeWidget);
+
             stackList.add(
               Positioned(
                 top: ttop,
@@ -108,26 +91,10 @@ class _MapShowState extends State<MapShow> {
           ;
         },
       );
-      // drawFlag = false;
     }
     ;
   }
 
-  //onLoad callback
-  @override
-  void initState() {
-    print('init');
-    // WidgetsBinding.instance.addPersistentFrameCallback(preDraw);
-    super.initState();
-    // Timer(Duration(milliseconds: 2000), () {
-    //   //Dirty hotfix: cant get the view to get the drawing size on init callback, just wait enough or tap it
-    //   print('timer');
-    //   setState(() {});
-    // });
-  }
-
-  //widget.onLoad(context);
-  //on build callback
   @override
   Widget build(BuildContext context) {
     if (stackList.isEmpty) {
@@ -138,12 +105,19 @@ class _MapShowState extends State<MapShow> {
         ),
       );
     }
-    refRegion = widget.thisRegion; //this is wrong
+    // refRegion = widget.thisRegion; //this is wrong
     return Column(
       children: [
+        SizedBox(
+          height: 8,
+        ),
+        Text(
+          widget.thisRegion.name,
+          style: TextStyle(fontSize: 18, color: Colors.cyan),
+        ),
         RaisedButton(
           onPressed: () {
-            preDraw(0);
+            preDraw();
           },
           child: Text('Explore!'),
         ),
@@ -174,8 +148,7 @@ class _MapShowState extends State<MapShow> {
                 closestPick = element;
               }
             });
-            // String pickName = closestPick.name;
-            //print('$closestDistance - $pickName');
+
             if (closestDistance < threshold) {
               //logic to show an animal card
               //incompatible model HOTFIX, search for the correct index
@@ -200,10 +173,6 @@ class _MapShowState extends State<MapShow> {
                 ),
               );
             }
-            //Drawing position: absolute
-            setState(() {
-              //stackList.add(Positioned(top: y, left: x, child: mapMarker()));
-            });
           },
         ),
       ],
