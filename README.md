@@ -30,3 +30,7 @@ We don't have any affiliations with WWF.
 - The images are hosted on a S3 bucket.
 
 Demo video https://www.youtube.com/watch?v=tRONGdRjeTQ
+
+![Screen 1](/screenshots/screenshot2.png)
+![Screen 2](/screenshots/screenshot3.png)
+![Screen 3](/screenshots/screenshot1.png)
