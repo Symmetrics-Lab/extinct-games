@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import './explore.dart';
 import './animal_list.dart';
@@ -34,8 +35,22 @@ class Home extends StatelessWidget {
             },
             child: Text('Trivia'),
           ),
+          RaisedButton(
+            onPressed: _launchURL,
+            child: Text('Donate to WWF'),
+          ),
         ],
       )),
     );
+  }
+}
+
+_launchURL() async {
+  const url =
+      'https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
