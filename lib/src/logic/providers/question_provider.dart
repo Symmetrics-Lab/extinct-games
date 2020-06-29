@@ -44,7 +44,7 @@ class QuestionProvider extends ChangeNotifier {
     Question(
       id: 3,
       text:
-          'Western lowland gorillas have been threatened by whic of the following?',
+          'Western lowland gorillas have been threatened by which of the following?',
       options: [
         'Poachers',
         'Habitat loss',
