@@ -87,17 +87,20 @@ class QuestionProvider extends ChangeNotifier {
     _currentScore = 0;
   }
 
-  void answer(int id, int answer) {
+  bool answer(int id, int answer) {
     var question = _trivia.firstWhere((q) => q.id == id);
+    var correct = false;
     if (question == null) {
       throw 'Question not found';
     }
 
     if (question.answer == answer) {
       _currentScore++;
+      correct = true;
     }
     _currentAnswers[id] = answer;
     print(_currentAnswers);
     notifyListeners();
+    return correct;
   }
 }
