@@ -18,8 +18,12 @@ We added a few of the most endangered species on earth, and we intend to add mor
 
 Done by SymmetricLabs during the Hack20 - Online International Flutter Hackathon 2020 - symlab.io
 
-Information is taken from the WWF webpage - wwf.com
+## References
+
+Animal info taken from [WWF - World wildlife fundation](https://www.worldwildlife.org/species/directory?direction=desc&sort=extinction_status)
 Maps taken from [vemaps.com](https://freevectormaps.com/).
+Trivia questions taken from [National Geographic](https://www.nationalgeographic.com/animals/quizzes/species-under-threat-quiz-part-1/)
+
 
 We don't have any affiliations with WWF.
 

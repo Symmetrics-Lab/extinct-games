@@ -17,7 +17,8 @@ class _TriviaState extends State<Trivia> {
   var _finished = false;
   var _answered = false;
   var _correct = false;
-
+  var _currentQuestionID = -1;
+  var trivia = null;
   @override
   void initState() {
     Provider.of<QuestionProvider>(context, listen: false).startTrivia();
@@ -34,7 +35,7 @@ class _TriviaState extends State<Trivia> {
 
   bool nexQuestion(index) {
     var correct = Provider.of<QuestionProvider>(context, listen: false)
-        .answer(_currentQuestion, _currentAnswer);
+        .answer(trivia[_currentQuestion].id, _currentAnswer);
     setState(() {
       _currentAnswer = -1;
     });
@@ -46,13 +47,14 @@ class _TriviaState extends State<Trivia> {
     setState(() {
       _currentAnswer = -1;
       _currentQuestion = 0;
+      _currentQuestionID = -1;
       _finished = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    var trivia = Provider.of<QuestionProvider>(context).trivia;
+    trivia = Provider.of<QuestionProvider>(context).trivia;
     var score =
         Provider.of<QuestionProvider>(context, listen: false).currentScore;
     return Scaffold(
@@ -120,6 +122,8 @@ class _TriviaState extends State<Trivia> {
                                       _currentAnswer = -1;
                                       _answered = false;
                                       _correct = false;
+                                      _currentQuestionID =
+                                          trivia[_currentQuestion].id;
                                     });
                                   },
                             child: Text('Next'),

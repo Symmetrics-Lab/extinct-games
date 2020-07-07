@@ -27,6 +27,8 @@ class QuestionProvider extends ChangeNotifier {
         '12',
       ],
       answer: 1,
+      explain:
+          'Nine species from the list have gone extinct since 1973, including the dusky seaside sparrow and the blue pike. Only 14 have recovered enough to be delisted.',
     ),
     Question(
       id: 2,
@@ -69,13 +71,81 @@ class QuestionProvider extends ChangeNotifier {
       explain:
           'The exotic chytrid fungus is delivering the fatal blow to many amphibians already hit by habitat loss, pollution, and climate change. Chytrid has been reported on all contintents where frogs live and has afflicted at least 200 amphibian species.',
     ),
+    Question(
+      id: 5,
+      text: 'Which of the following groups is disappearing the fastest?',
+      options: [
+        'Land species',
+        'Sea species',
+        'Freshwater species',
+      ],
+      answer: 2,
+      explain:
+          'Freshwater animals are vanishing at a rate four to six times as fast as those on land or at sea. Lakes, swamps, and rivers are home to as many as 126,000 of the world\'s animal species, including snails, mussels, crocodiles, turtles',
+    ),
+    Question(
+      id: 6,
+      text: 'Which sea turtle is the most critically endangered?',
+      options: [
+        'Olive ridley',
+        'Leatherback',
+        'Green sea turtle',
+        'Kemp\'s ridley',
+      ],
+      answer: 3,
+      explain:
+          'The Kemp\'s ridley turtle is the world’s most endangered sea turtle, with a worldwide female nesting population roughly estimated at just 1,000 individuals. Its perilous situation is The kemp\'s attributed primarily to the overharvesting of eggs during the last century.',
+    ),
+    Question(
+      id: 7,
+      text:
+          'What was the first animal to join the endangered species list because of climate change?',
+      options: [
+        'Gentoo penguin',
+        'Polar bear',
+        'Roseate spoonbill',
+        'Artic fox',
+      ],
+      answer: 1,
+      explain:
+          'In 2008 polar bears were listed as threatened under the U.S. Endangered Species Act, the first animals added because of climate change. The continuing loss of sea ice in the Arctic puts the bears in jeopardy.',
+    ),
+    Question(
+      id: 8,
+      text:
+          'What animals have recovered sufficiently to be removed from the U.S. list of endangered and threatened species?',
+      options: [
+        'Bald eagle',
+        'American alligator',
+        'Peregrine falcon',
+        'All of the above',
+      ],
+      answer: 3,
+      explain:
+          'Each of these species—and 11 others—recovered enough to be delisted in the U.S. The bald eagle, for instance, was restored from fewer than 500 nesting pairs in 1963 to some 10,000 pairs in 2007.',
+    ),
+    Question(
+      id: 9,
+      text:
+          'How many animal species were listed as critically endangered by the IUCN in 2010?',
+      options: [
+        '887',
+        '1657',
+        '4323',
+        '11760',
+      ],
+      answer: 1,
+      explain:
+          'In 2010, 1,657 animals were named as "critically endangered" on the IUCN Red List, an annual ranking of global conservation status—14 more than in 2009.',
+    )
   ];
 
   Map<int, int> _currentAnswers = {};
   int _currentScore = 0;
 
   List<Question> get trivia {
-    return _trivia;
+    return _trivia.sublist(0, 5);
+    //return trivia;
   }
 
   int get currentScore {
@@ -83,6 +153,7 @@ class QuestionProvider extends ChangeNotifier {
   }
 
   void startTrivia() {
+    _trivia.shuffle();
     _currentAnswers = {};
     _currentScore = 0;
   }
